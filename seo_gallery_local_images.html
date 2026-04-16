@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery with Alt Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 24px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .image-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .image-info {
+      flex: 1;
+    }
+
+    .image-info h3 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .image-info p {
+      margin: 8px 0;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .image-preview {
+      flex: 1;
+      text-align: right;
+    }
+
+    .image-preview img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <p>Title - <em>Best Urology Clinic in Nairobi Kenya | Uro-Care</em></p>
+  <p>Meta Description - <em>Uro-Care is a leading urology clinic in Nairobi Kenya offering expert treatment for prostate, kidney and urinary conditions.</em></p>
+  <div class="container">
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <script>
+    const images = [
+      {
+        name: "urocare-urology-clinic-nairobi-kenya.webp",
+        alt: "Leading urology clinic in Nairobi providing expert care for men’s health and urinary conditions",
+        src: "01 UROCARE ENTRANCE.jpg"
+      },
+      {
+        name: "urocare-why-choose-us-urology-clinic-nairobi-kenya.webp",
+        alt: "Why choose Uro-Care urology clinic in Nairobi Kenya for specialized treatment",
+        src: "cc_arm.jpeg"
+      },
+      {
+        name: "urocare-about-us-urology-specialists-nairobi-kenya.webp",
+        alt: "About Uro-Care urology specialists in Nairobi Kenya providing quality healthcare",
+        src: "doc.png"
+      },
+      {
+        name: "urocare-kidneystones-treatment-nairobi-kenya.webp",
+        alt: "kidneystones treatment services at Uro-Care Nairobi Kenya",
+        src: "special.jpg"
+      },
+      {
+        name: "erectile-dysfunction-treatment-nairobi-kenya.webp",
+        alt: "Erectile dysfunction services at Uro-Care Nairobi Kenya",
+        src: "cons.jpg"
+      },
+      {
+        name: "urocare-urology-diagnosis-screening-kenya.webp",
+        alt: "Urology diagnosis and screening services at Uro-Care Kenya",
+        src: "minimalsurgey.jpg"
+      },
+      {
+        name: "urology-laboratory-diagnosis-screening-kenya.webp",
+        alt: "Urology laboratory diagnosis and screening services at Uro-Care Kenya",
+        src: "lab.png"
+      },
+      {
+        name: "urocare-pharmacy-services-nairobi-kenya.webp",
+        alt: "Pharmacy services at Uro-Care clinic in Nairobi Kenya",
+        src: "med.png"
+      }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    images.forEach((image, index) => {
+      gallery.innerHTML += `
+        <div class="image-row">
+          <div class="image-info">
+            <h3>Image ${index + 1}</h3>
+            <p><span class="label">Image Name:</span> ${image.name}</p>
+            <p><span class="label">Alt Text:</span> ${image.alt}</p>
+          </div>
+          <div class="image-preview">
+            <img src="${image.src}" alt="${image.alt}">
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
